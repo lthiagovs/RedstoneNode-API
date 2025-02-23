@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ScriptService } from './script.service';
+import { MineflayerService } from './mineflayer.service';
 
-describe('ScriptService', () => {
-  let service: ScriptService;
+describe('MineflayerService', () => {
+  let service: MineflayerService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ScriptService],
+      providers: [MineflayerService],
     }).compile();
 
-    service = module.get<ScriptService>(ScriptService);
+    service = module.get<MineflayerService>(MineflayerService);
   });
 
   it('should be defined', () => {
