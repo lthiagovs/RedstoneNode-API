@@ -36,6 +36,11 @@ export class MineflayerService {
 
     }
 
+    async makeOffline(id:number){
+        const index = this.activeBots.findIndex(bot => bot.id==id);
+        return this.activeBots.splice(index,1);
+    }
+
     private getBotByID(id:number){
         return this.activeBots.find(bot => bot.id == id);
     }

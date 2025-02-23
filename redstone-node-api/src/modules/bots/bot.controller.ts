@@ -19,6 +19,11 @@ export class BotController {
         return this.service.getById(id);
     }
 
+    @Get('GetByConnectionID/:id')
+    getByConnectionID(@Param('id') id:number){
+        return this.service.getByConnectionID(id);
+    }
+
     @Post('create')
     @ApiBody({type: CreateBotDto})
     createBot(@Body() bot:CreateBotDto){
@@ -30,5 +35,9 @@ export class BotController {
         return this.service.online(id);
     }
 
+    @Put('offline/:id')
+    offline(@Param('id') id:number){
+        return this.service.offline(id);
+    }
 
 }

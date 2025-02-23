@@ -37,6 +37,20 @@ export class BotService{
 
     }
 
+    async getByConnectionID(id:number){
+        const bots = await this.repository.find({
+            relations: ['connection'],
+        });
+
+        const filteredBots = bots.filter(bot => bot.connection.id == id);
+
+        if(!filteredBots){
+            throw new BadRequestException('not found');
+        }
+
+        return filteredBots;
+    }
+
     async getConnectionByID(id:number){
 
     }
@@ -68,6 +82,10 @@ export class BotService{
         const bot = await this.getById(id);
         return await this.service.startBot(bot);
         
+    }
+
+    async offline(id:number){
+        return this.service.makeOffline(id);
     }
 
     delete(){

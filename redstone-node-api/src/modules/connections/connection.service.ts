@@ -34,7 +34,7 @@ export class ConnectionService {
 
         this.repository.create(connection);
         this.repository.save(connection);
-
+        return connection;
     }
 
     startConnection(){
