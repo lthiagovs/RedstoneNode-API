@@ -1,8 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { Connection } from "./connection.entity";
 
 @Entity()
+@Unique(["username"])
 export class Bot{
 
     @ApiProperty()
